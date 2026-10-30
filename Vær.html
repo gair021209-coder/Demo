@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#dceeff">
+  <meta name="description" content="Live weather for students and staff in Halden, Norway.">
+  <title>Halden Weather — Campus forecast</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="vær.css">
+  <script src="vær.js" defer></script>
+</head>
+<body>
+  <div class="sky-decoration sky-decoration-one" aria-hidden="true"></div>
+  <div class="sky-decoration sky-decoration-two" aria-hidden="true"></div>
+  <div class="page-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Halden Weather home">
+        <span class="brand-mark" aria-hidden="true">H</span>
+        <span>halden<span class="brand-light">weather</span></span>
+      </a>
+      <div class="topbar-actions">
+        <span class="location-label"><span class="location-dot"></span> HALDEN, NORWAY</span>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false">
+          <span class="theme-icon" aria-hidden="true">🎃</span>
+          <span id="theme-label">Halloween mode</span>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="intro">
+        <div>
+          <p class="eyebrow">YOUR CAMPUS, YOUR FORECAST</p>
+          <h1>A little more prepared<br>for <span>what’s outside.</span></h1>
+          <p class="intro-copy">A local weather check for the students and staff of Halden.</p>
+        </div>
+        <div class="date-card">
+          <span class="date-icon" aria-hidden="true">☀</span>
+          <div>
+            <p id="today-label">TODAY IN HALDEN</p>
+            <strong id="today-date">Loading date…</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="weather-grid" aria-label="Current weather in Halden">
+        <article class="current-card">
+          <div class="current-topline">
+            <div>
+              <p class="card-kicker">RIGHT NOW <span class="live-dot"></span></p>
+              <h2>Halden</h2>
+            </div>
+            <span class="weather-symbol" id="weather-symbol" aria-hidden="true">☁</span>
+          </div>
+          <div class="temperature-row">
+            <span class="temperature" id="temperature">--°</span>
+            <div class="condition-block">
+              <strong id="condition">Waiting for weather</strong>
+              <span>Feels like <span id="feels-like">--°</span></span>
+            </div>
+          </div>
+          <p class="weather-note" id="weather-note">Loading the latest forecast for Halden…</p>
+          <div class="sun-line"><span aria-hidden="true">☼</span><span id="updated-at">Halden, Østfold</span></div>
+        </article>
+
+        <article class="details-card">
+          <div class="card-heading">
+            <div>
+              <p class="card-kicker">THE DETAILS</p>
+              <h2>Step outside smarter</h2>
+            </div>
+            <span class="details-sparkle" aria-hidden="true">✳</span>
+          </div>
+          <div class="detail-grid">
+            <div class="detail-item">
+              <span class="detail-icon" aria-hidden="true">💨</span>
+              <div><span class="detail-label">WIND</span><strong id="wind">--</strong></div>
+            </div>
+            <div class="detail-item">
+              <span class="detail-icon" aria-hidden="true">💧</span>
+              <div><span class="detail-label">HUMIDITY</span><strong id="humidity">--</strong></div>
+            </div>
+            <div class="detail-item">
+              <span class="detail-icon" aria-hidden="true">☂</span>
+              <div><span class="detail-label">PRECIPITATION</span><strong id="rain-chance">--</strong></div>
+            </div>
+            <div class="detail-item">
+              <span class="detail-icon" aria-hidden="true">☀</span>
+              <div><span class="detail-label">UV INDEX</span><strong id="uv-index">--</strong></div>
+            </div>
+          </div>
+          <div class="tip-box">
+            <span aria-hidden="true">✦</span>
+            <p id="student-tip">A quick forecast can make the walk to class a little easier.</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="forecast-card" aria-labelledby="forecast-title">
+        <div class="forecast-heading">
+          <div>
+            <p class="card-kicker">COMING UP</p>
+            <h2 id="forecast-title">The next few hours</h2>
+          </div>
+          <span class="forecast-caption">A heads-up for your day</span>
+        </div>
+        <div class="hourly-list" id="hourly-list" aria-live="polite">
+          <p class="forecast-empty">Loading the hourly forecast…</p>
+        </div>
+      </section>
+
+      <section class="connect-card" aria-labelledby="connect-title">
+        <div class="connect-copy">
+          <span class="connect-icon" aria-hidden="true">↻</span>
+          <div>
+            <p class="card-kicker">LIVE WEATHER</p>
+            <h2 id="connect-title">Forecast for Halden</h2>
+            <p>Current conditions and the next hours, updated from the latest forecast.</p>
+          </div>
+        </div>
+        <div class="refresh-area">
+          <button class="refresh-button" id="refresh-button" type="button">Refresh forecast <span aria-hidden="true">↻</span></button>
+          <p class="api-status" id="api-status" role="status">Getting the latest weather…</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>Made for the Halden campus community <span aria-hidden="true">✳</span></span>
+      <span>Weather forecast by Open-Meteo</span>
+    </footer>
+  </div>
+</body>
+</html>
